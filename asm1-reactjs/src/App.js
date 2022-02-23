@@ -1,14 +1,24 @@
 import logo from './logo.svg';
 import './App.css';
-import {DEPARTMENTS, ROLE, STAFF} from './staffs.jsx';
+import {DEPARTMENTS, ROLE, STAFFS} from './appData/staffs';
 import StaffList from './components/StaffListComponent';
 
 function App() {
+  
   return (
     <div className="App">
-      <header className="App-header">
-       
-      </header>
+     
+        {STAFFS.map(staff => ( 
+          <StaffList
+            key = {staff.id}
+            doB = {staff.doB}
+            startDate = {staff.startDate}
+            department = {staff.department}
+            annualLeave = {staff.annualLeave}
+            overTime = {staff.overTime}
+          />
+        ))
+        }
     </div>
   );
 }
