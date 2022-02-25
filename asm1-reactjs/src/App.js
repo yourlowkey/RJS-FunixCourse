@@ -10,11 +10,13 @@ function App() {
 
   return (
     <div className="App">
+
       {STAFFS.map(staff =>
         <div className="StaffList" key={staff.id} onClick={()=>setStaff(staff)}>
           {staff.name}
         </div>
       )}
+
       {/* posts staff info using state */}
       {currentStaff && <StaffInfor
         staff={currentStaff}
