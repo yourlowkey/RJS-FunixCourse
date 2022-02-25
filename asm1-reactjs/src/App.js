@@ -10,11 +10,13 @@ function App() {
 
   return (
     <div className="App">
-
+      <nav> Ứng dụng quản lý nhân sự v1.0</nav> 
       {STAFFS.map(staff =>
-        <div className="StaffList" key={staff.id} onClick={()=>setStaff(staff)}>
+      <div >
+        <div className="StaffList"  key={staff.id} onClick={()=>setStaff(staff)}>
           {staff.name}
         </div>
+      </div>
       )}
 
       {/* posts staff info using state */}

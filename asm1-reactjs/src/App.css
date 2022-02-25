@@ -1,3 +1,58 @@
+* {
+    border-width: 1px;
+}
+nav {
+    position :fixed; 
+    z-index: 8;
+    background-color: #e26647;
+    height: 60px;
+    width: 100%;
+    font-family: 'Montserrat',sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+    top: 0;
+    float: left;
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+}
+.App{
+    margin-top: 100px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 10px;
+}
 .StaffInfo {
+    border-radius: 0px;
     
+}
+.StaffList {
+    border-radius: 25px;
+    background-color: #c7c8ca;
+    border: #e26647;
+}
+
+@media only screen and (min-device-width : 320px) and (max-device-width : 480px) {
+    .App{
+        margin-top: 100px;
+        display: grid;
+        grid-template-columns: 1fr ;
+        gap: 10px;
+    }
+}
+@media only screen and (min-device-width : 768px)  {
+    .App{
+        margin-top: 100px;
+        display: grid;
+        grid-template-columns: 1fr 1fr ;
+        gap: 10px;
+    }
+}
+@media only screen  and (min-width : 1024px) {
+    .App{
+        margin-top: 100px;
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        gap: 10px;
+    }
 }
