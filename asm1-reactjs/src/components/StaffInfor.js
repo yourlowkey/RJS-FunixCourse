@@ -1,4 +1,5 @@
 import dateFormat, { masks } from "dateformat";
+import './StaffInfor.css'
 function StaffInfor({staff:{name,doB,startDate,department:{departmentName},annualLeave,overTime}}){
     return (
         <div className="StaffInfor">
