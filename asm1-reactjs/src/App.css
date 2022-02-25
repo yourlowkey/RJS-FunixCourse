@@ -23,11 +23,10 @@ nav {
     gap: 10px;
 }
 .StaffInfo {
-    border-radius: 0px;
-    
+    background-color: #8a8b8f;
 }
 .StaffList {
-    border-radius: 25px;
+    border-radius: 15px;
     background-color: #c7c8ca;
     border: #e26647;
 }

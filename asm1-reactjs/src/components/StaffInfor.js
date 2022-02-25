@@ -3,11 +3,11 @@ function StaffInfor({staff:{name,doB,startDate,department:{departmentName},annua
     return (
         <div className="StaffInfor">
                 <h2>{name}</h2>
-                <p >{`Ngày sinh: ${ dateFormat(doB)}`}</p>
-                <p>{`Ngày vào công ty: ${dateFormat(startDate)}`}</p>
-                <p>{`Phòng ban ${ departmentName}`}</p>
-                <p>{annualLeave}</p>
-                <p>{overTime}</p>
+                <p >{`Ngày sinh: ${ dateFormat(doB, "paddedShortDate")}`}</p>
+                <p>{`Ngày vào công ty: ${dateFormat(startDate,"paddedShortDate")}`}</p>
+                <p>{`Phòng ban: ${ departmentName}`}</p>
+                <p>{`Số ngày nghỉ còn lại: ${annualLeave}`}</p>
+                <p>{`Số ngày đã làm thêm: ${overTime}`}</p>
         </div>  
     )
 }
