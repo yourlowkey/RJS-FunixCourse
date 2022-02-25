@@ -1,24 +1,24 @@
 import logo from './logo.svg';
 import './App.css';
-import {DEPARTMENTS, ROLE, STAFFS} from './appData/staffs';
-import StaffList from './components/StaffListComponent';
+import { DEPARTMENTS, ROLE, STAFFS } from './appData/staffs';
+import StaffInfor from './components/StaffInfor';
+import React, { useState } from 'react';
+
 
 function App() {
-  
+  const [currentStaff, setStaff] = useState(null);
+
   return (
     <div className="App">
-     
-        {STAFFS.map(staff => ( 
-          <StaffList
-            key = {staff.id}
-            doB = {staff.doB}
-            startDate = {staff.startDate}
-            department = {staff.department}
-            annualLeave = {staff.annualLeave}
-            overTime = {staff.overTime}
-          />
-        ))
-        }
+      {STAFFS.map(staff =>
+        <div className="StaffList" key={staff.id} onClick={()=>setStaff(staff)}>
+          {staff.name}
+        </div>
+      )}
+      {/* posts staff info using state */}
+      {currentStaff && <StaffInfor
+        staff={currentStaff}
+      />}
     </div>
   );
 }
