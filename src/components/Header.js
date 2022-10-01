@@ -8,7 +8,7 @@ import 'bootstrap/dist/css/bootstrap.css';
 const Header = () => {
   return (
     <>
-      <Navbar>
+      <Navbar className="bg-primary">
         <Nav>
           <Nav.Link as={NavLink} to="/" exact="true">
             Home
