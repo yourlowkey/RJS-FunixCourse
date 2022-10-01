@@ -14,8 +14,8 @@ export default function App() {
         <Route path="/" element={<Header />}>
           <Route index element={<Home />} />
           <Route path="staff" element={<StaffList />} />
-          {/* <Route path="staff/:staffId" element={<StaffDetail />} /> */}
-          {/* <Route path="salary" element={<SalaryTable />} /> */}
+          <Route path="staff/:staffId" element={<StaffDetail />} />
+          <Route path="salary" element={<SalaryTable />} />
           <Route path="department" element={<DepartmentList />} />
         </Route>
       </Routes>

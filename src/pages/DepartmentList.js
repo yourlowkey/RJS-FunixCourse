@@ -4,8 +4,8 @@ import { Link } from 'react-router-dom';
 const DepartmentList = () => {
   var staffDepartMentList = [];
   staffDepartMentList = DEPARTMENTS.map((item) => (
-    <div className="">
-      <div>
+    <div >
+      <div className="card">
         <h4 className="card-item">{item.name}</h4>
         <p>
             {'Số nhân viên:' + item.numberOfStaff}

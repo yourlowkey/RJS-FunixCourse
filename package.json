@@ -3,6 +3,7 @@
   "version": "0.0.0",
   "private": true,
   "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^6.2.0",
     "@popperjs/core": "^2.11.5",
     "@types/react": "18.0.18",
     "bootstrap": "^5.2.0",
