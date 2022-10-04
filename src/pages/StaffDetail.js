@@ -2,7 +2,7 @@ import React from 'react';
 import { useParams } from 'react-router-dom';
 import {STAFFS} from '../data/StaffData';
 const StaffDetail = () => {
-  const { staffId } = useParams();
+  const {staffId} = useParams();
   const staff = STAFFS.find((staff) => staff.id === staffId);
   return (
     <div>
