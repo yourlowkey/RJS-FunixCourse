@@ -1,10 +1,11 @@
 import React from 'react';
 import {STAFFS} from '../data/StaffData';
 import { Link } from 'react-router-dom';
+
 const StaffList = () => {
   var staffList = [];
   staffList = STAFFS.map((item) => (
-      <div className="card col-md-4 col-sm-12 mb-3">
+      <div className="card col-sm-6 col-md-4 col-lg-2 mb-3">
         <img className="card-img-top mt-3" src={item.image} alt="Card image" />
         <div>
           <h4 className="card-item">{item.name}</h4>
@@ -17,9 +18,12 @@ const StaffList = () => {
       </div>
   ));
   return (
-    <div className='row'>
+    <div className='container'>
+      <div className='row bg-red'>
         {staffList}
+      </div>
     </div>
+    
   )
   
 };
