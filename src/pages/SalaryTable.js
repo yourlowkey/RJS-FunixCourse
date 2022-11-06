@@ -1,8 +1,7 @@
-import { STAFFS, DEPARTMENTS } from "../data/StaffData";
+import { STAFFS } from '../data/StaffData';
 const SalaryTable = () => {
-  var staffList=[];
-  staffList = STAFFS.map((item) => (
-    <div className="container">
+  return STAFFS.map((item) => (
+    <div className="container" key={item.id}>
       <div className="card">
         <h4 className="card-item">{item.name}</h4>
         <p className="card-item">Mã nhân viên : {item.id}</p>
@@ -10,12 +9,14 @@ const SalaryTable = () => {
         <p className="card-item">Giờ làm thêm :{item.overTime}</p>
         <p>
           <td>
-            <input type="text" value={'Lương : ' + parseInt(item.salaryScale * 3000000 + item.overTime * 200000)}/>
+            <input
+              type="text"
+              value={'Lương : ' + parseInt(item.salaryScale * 3000000 + item.overTime * 200000)}
+            />
           </td>
         </p>
       </div>
     </div>
   ));
-  return staffList;
 };
 export default SalaryTable;

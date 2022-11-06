@@ -1,11 +1,8 @@
 import React from 'react';
-
-import { Outlet } from 'react-router-dom';
-import { Link, NavLink } from 'react-router-dom';
-
+import { Outlet, NavLink } from 'react-router-dom';
 import { Navbar, Nav } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.css';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 const Header = () => {
   return (
@@ -16,15 +13,15 @@ const Header = () => {
             Home
           </Nav.Link>
           <Nav.Link as={NavLink} to="/staff">
-          <FontAwesomeIcon icon="fa-solid fa-user-group" />          
-           Nhan vien
+            <FontAwesomeIcon icon="fa-solid fa-user-group" />
+            Nhan vien
           </Nav.Link>
           <Nav.Link as={NavLink} to="/department">
-          <FontAwesomeIcon icon="fa-solid fa-building-user" />
+            <FontAwesomeIcon icon="fa-solid fa-building-user" />
             Phong ban
           </Nav.Link>
           <Nav.Link as={NavLink} to="/salary">
-          <FontAwesomeIcon icon="fa-solid fa-money-bill" />
+            <FontAwesomeIcon icon="fa-solid fa-money-bill" />
             Bang luong
           </Nav.Link>
         </Nav>
