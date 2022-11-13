@@ -13,7 +13,7 @@ const StaffDetail = () => {
 
   return (
     <div>
-      <div className="breadcrumb">
+      <div className="breadcrumb mb-3">
         <Link to={'/staff/'}>staff</Link>/ {staff.name}
       </div>
       {/* <img src={staff.image} alt="staff image" /> */}

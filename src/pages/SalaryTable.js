@@ -2,7 +2,7 @@ import { STAFFS } from '../data/StaffData';
 const SalaryTable = () => {
   return STAFFS.map((item) => (
     <div className="container" key={item.id}>
-      <div className="card">
+      <div className="card m-3">
         <h4 className="card-item">{item.name}</h4>
         <p className="card-item">Mã nhân viên : {item.id}</p>
         <p className="card-item">Hệ số lương :{item.salaryScale}</p>

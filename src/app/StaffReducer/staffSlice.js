@@ -2,7 +2,7 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { STAFFS } from '../../data/StaffData';
 
-const counterSlice = createSlice({
+const staffSlice = createSlice({
   name: 'staff', // tên chuỗi xác định slice
   initialState: localStorage.getItem('staffList')
     ? JSON.parse(localStorage.getItem('staffList'))
@@ -15,7 +15,7 @@ const counterSlice = createSlice({
     }
   }
 });
-const { actions, reducer } = counterSlice;
+const { actions, reducer } = staffSlice;
 export const { createStaff } = actions; // export action
 const staffReducer = reducer;
 export default staffReducer; // ngầm hiểu chúng ta đang export counterSlice
