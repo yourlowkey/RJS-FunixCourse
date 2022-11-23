@@ -1,10 +1,11 @@
 import React from 'react';
 import { useParams } from 'react-router-dom';
-import { STAFFS } from '../data/StaffData';
 import { Link } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 const StaffDetail = () => {
   const { staffId } = useParams();
-  const staff = STAFFS.find((staff) => staff.id === parseInt(staffId));
+  const staffs = useSelector((state) => state.staff);
+  const staff = staffs.find((staff) => staff.id === parseInt(staffId));
 
   function isoDateParse(dateISO8601) {
     var d = new Date(dateISO8601);

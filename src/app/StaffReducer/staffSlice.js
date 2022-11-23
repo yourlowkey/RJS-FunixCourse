@@ -10,6 +10,7 @@ const staffSlice = createSlice({
   reducers: {
     // tạo các actions
     createStaff(state, action) {
+      action.payload.id = [...state].pop().id + 1;
       state.push(action.payload);
       localStorage.setItem('staffList', JSON.stringify(state));
     }

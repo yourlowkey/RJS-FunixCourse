@@ -4,9 +4,9 @@ import { useDispatch } from 'react-redux';
 import { createStaff } from '../app/StaffReducer/staffSlice';
 
 function StaffForm(props) {
-  console.log(props);
   // eslint-disable-next-line react/prop-types
-  const { handleSubmit } = props;
+  const { handleSubmit, submitRef } = props;
+  console.log(props);
   const dispatch = useDispatch();
   const handleCreateStaff = (data) => {
     const action = createStaff(data);
@@ -15,20 +15,38 @@ function StaffForm(props) {
   };
 
   return (
-    <form onSubmit={handleSubmit((data) => handleCreateStaff(data))}>
-      <div>
-        <label htmlFor="staffName">Họ và tên</label>
-        <Field defaultValue="" name="name" component="input" type="text" />
+    <form
+      onSubmit={handleSubmit((e) => {
+        handleCreateStaff(e);
+      })}>
+      <div className="mb-3">
+        <label>Họ và tên</label>
+        <br />
+        <Field defaultValue="" name="name" component="input" type="text" required />
       </div>
-      <div>
-        <label htmlFor="staffDob">Ngày sinh</label>
-        <Field defaultValue="" name="doB" component="input" type="text" />
+      <div className="mb-3">
+        <label>Ngày sinh</label>
+        <br />
+        <Field defaultValue="" name="startDate" component="input" type="date" required />
       </div>
-      <div>
-        <label htmlFor="">Số ngày đã làm thêm</label>
-        <Field defaultValue="" name="id" component="input" type="number" />
+      <div className="mb-3">
+        <label>Số ngày nghỉ</label>
+        <br />
+        <Field defaultValue="" name="annualLeave" component="input" type="number" required />
       </div>
-      <button type="submit">Submit</button>
+      <div className="mb-3">
+        <label>Ngày vào công ty</label>
+        <br />
+        <Field defaultValue="" name="doB" component="input" type="date" required />
+      </div>
+      <div className="mb-3">
+        <label>Số ngày đã làm thêm</label>
+        <br />
+        <Field defaultValue="" name="overTime" component="input" type="number" required />
+      </div>
+      <button ref={submitRef} type="submit" style={{ display: 'none' }}>
+        Submit
+      </button>
     </form>
   );
 }
@@ -44,6 +62,6 @@ const validate = (values) => {
 const staffForm = reduxForm({
   // a unique name for the form
   form: 'contact',
-  validate: validate
+  validate
 })(StaffForm);
 export default staffForm;
