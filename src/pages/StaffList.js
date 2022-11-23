@@ -35,8 +35,6 @@ const StaffList = () => {
       return staff.name.toString().toLowerCase().indexOf(input.toLowerCase()) !== -1;
     });
     setStaffRenderToScreen(newStaffList);
-    console.log('searched aray', newStaffList);
-    console.log('search input', input);
   };
   const staffList = staffRenderToScreen.map((item) => (
     <div className="card col-sm-6 col-md-4 col-lg-2 m-2" key={item.id}>
@@ -55,7 +53,7 @@ const StaffList = () => {
     <div className="container">
       <Modal show={show} onHide={handleClose} backdrop="static" keyboard={false}>
         <Modal.Header closeButton>
-          <Modal.Title>Modal title</Modal.Title>
+          <Modal.Title>Thêm mới nhân viên</Modal.Title>
         </Modal.Header>
         <Modal.Body>
           <StaffForm submitRef={submitRef} />
@@ -72,7 +70,7 @@ const StaffList = () => {
           <input className="inputSearch" onChange={(e) => setInput(e.target.value)}></input>
           <button onClick={handleOnSearch}>Search</button>
           <Button variant="primary" onClick={handleShow}>
-            Create staff
+            Thêm mới nhân viên
           </Button>
         </div>
       </div>
