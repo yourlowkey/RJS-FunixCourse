@@ -5,26 +5,36 @@ import { useSelector } from 'react-redux';
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 import StaffForm from '../components/StaffCreate';
-
+import { useDispatch } from 'react-redux';
+import { fetchStaffs } from '../app/StaffReducer/staffSlice';
+import { useEffect } from 'react';
 const StaffList = () => {
   // force rerender
   // const [, updateState] = React.useState();
   // const forceUpdate = React.useCallback(() => updateState({}), []);
+  const dispatch = useDispatch();
+  const staffLoading = useSelector((store) => store.staff.isLoading);
+  useEffect(() => {
+    dispatch(fetchStaffs());
 
-  const staffs = useSelector((state) => state.staff);
+    staffLoading && setStaffRenderToScreen(staffs);
+  }, []);
+
+  const staffs = useSelector((state) => state.staff.data);
+  console.log('staffs', staffs);
   const [show, setShow] = useState(false);
 
   const submitRef = useRef();
 
   const [staffRenderToScreen, setStaffRenderToScreen] = useState(staffs);
-
+  console.log('staff screen', staffRenderToScreen);
   const [input, setInput] = useState();
 
   const handleClose = () => {
     submitRef.current.click();
     // forceUpdate;
     setShow(false);
-    window.location.reload(false);
+    // window.location.reload(false);
   };
   const handleShow = () => {
     setShow(true);

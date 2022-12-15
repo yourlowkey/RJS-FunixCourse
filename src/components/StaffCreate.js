@@ -1,7 +1,7 @@
 import React from 'react';
 import { Field, reduxForm, reset } from 'redux-form';
 import { useDispatch } from 'react-redux';
-import { createStaff } from '../app/StaffReducer/staffSlice';
+import { createStaffs } from '../app/StaffReducer/staffSlice';
 
 function StaffForm(props) {
   // eslint-disable-next-line react/prop-types
@@ -9,8 +9,8 @@ function StaffForm(props) {
   console.log(props);
   const dispatch = useDispatch();
   const handleCreateStaff = (data) => {
-    const action = createStaff(data);
-    dispatch(action);
+    const actionThunk = createStaffs(data);
+    dispatch(actionThunk);
     dispatch(reset('contact'));
   };
 
@@ -61,7 +61,7 @@ const validate = (values) => {
 };
 const staffForm = reduxForm({
   // a unique name for the form
-  form: 'contact',
+  form: 'staffs',
   validate
 })(StaffForm);
 export default staffForm;
