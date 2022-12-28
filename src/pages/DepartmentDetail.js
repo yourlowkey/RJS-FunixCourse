@@ -1,18 +1,22 @@
 import React, { useState, useEffect } from 'react';
 import { useRef } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 import StaffForm from '../components/StaffCreate';
 import { useDispatch } from 'react-redux';
-import { fetchStaffs } from '../app/StaffReducer/staffSlice';
-const StaffList = () => {
+import { fetchDeparmentsDetail } from '../app/DepartmentReducer/departmentDetailSlice';
+
+const DepartmentDetail = () => {
   // force rerender
   // const [, updateState] = React.useState();
   // const forceUpdate = React.useCallback(() => updateState({}), []);
+  const { departmentId } = useParams();
   const dispatch = useDispatch();
-  const { isLoading: staffLoading, data: staffs } = useSelector((store) => store.staff);
+  const { isLoading: deparmentLoading, data: departmentDetail } = useSelector(
+    (store) => store.departmentdetail
+  );
 
   const [input, setInput] = useState();
   const [show, setShow] = useState(false);
@@ -29,21 +33,19 @@ const StaffList = () => {
   };
 
   const handleOnSearch = () => {
-    const newStaffList = staffs.filter((staff) => {
+    const newStaffList = departmentDetail.filter((staff) => {
       return staff.name.toString().toLowerCase().indexOf(input.toLowerCase()) !== -1;
     });
     setStaffRenderToScreen(newStaffList);
   };
 
   useEffect(() => {
-    if (!staffs || staffs.length === 0) {
-      dispatch(fetchStaffs());
-    }
+    dispatch(fetchDeparmentsDetail(departmentId));
   }, []);
 
   useEffect(() => {
-    if (!staffLoading) setStaffRenderToScreen(staffs);
-  }, [staffLoading, staffs]);
+    if (!deparmentLoading) setStaffRenderToScreen(departmentDetail);
+  }, [deparmentLoading, departmentDetail]);
 
   const staffList = staffRenderToScreen?.map((item) => (
     <div className="col-sm-6 col-md-4 col-lg-3" key={item.id}>
@@ -96,7 +98,7 @@ const StaffList = () => {
           </div>
         </div>
       </div>
-      {staffLoading ? (
+      {deparmentLoading ? (
         <div className="d-flex justify-content-center">
           <div className="spinner-border" role="status">
             <span className="visually-hidden">Loading...</span>
@@ -108,4 +110,4 @@ const StaffList = () => {
     </div>
   );
 };
-export default StaffList;
+export default DepartmentDetail;
