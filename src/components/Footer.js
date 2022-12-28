@@ -4,7 +4,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 const Footer = () => {
   return (
-    <div className="container-fluid footer">
+    <footer className="container-fluid footer">
       <div className="row">
         <div className="col-6 align-items-center d-flex justify-content-center">
           <div className=" d-flex justify-content-center flex-column">
@@ -46,7 +46,7 @@ const Footer = () => {
           />
         </div>
       </div>
-    </div>
+    </footer>
   );
 };
 

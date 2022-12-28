@@ -12,14 +12,11 @@ p {
 #root {
   position: relative;
 }
-.Header {
-  position: relative;
-  height: 100px;
-  width: 100%;
-}
-
 .Main {
   position: relative;
+}
+.home {
+  height: calc(100vh - 396px)
 }
 .logo {
   width: 30px;

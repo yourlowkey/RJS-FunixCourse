@@ -9,6 +9,7 @@ function StaffForm(props) {
   console.log(props);
   const dispatch = useDispatch();
   const handleCreateStaff = (data) => {
+    data.image = '/assets/images/alberto.png';
     const actionThunk = createStaffs(data);
     dispatch(actionThunk);
     dispatch(reset('contact'));

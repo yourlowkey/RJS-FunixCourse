@@ -7,7 +7,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 const Header = () => {
   return (
     <div className="Header">
-      <Navbar className="bg-primary">
+      <Navbar className="bg-warning">
         <Nav>
           <Nav.Link as={NavLink} to="/" exact="true">
             Home
@@ -26,7 +26,6 @@ const Header = () => {
           </Nav.Link>
         </Nav>
       </Navbar>
-
       <Outlet />
     </div>
   );
